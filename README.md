@@ -63,4 +63,3 @@ print(generate_exploit())
 - Lưu ý rằng bạn cần build poc bằng linux hoặc ubuntu
 
 ![alt text](images/7.png)
-![alt text](images/8.png)
