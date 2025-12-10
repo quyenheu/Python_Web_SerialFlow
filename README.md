@@ -1,5 +1,5 @@
 **I, Phân tích**
-- Challenge có 2 routes: / and /set cho phép custom lại color của website
+- web có 2 routes: / and /set cho phép custom lại color của website
 
 ![alt text](images/1.png)
 
@@ -13,8 +13,8 @@
 
 - Sau khi search về memcached mình phát hiện ra có vuln serialized data injection vào Memcached
 - Thông qua việc tạo session, ta có thể inject nó vào memcached (python pickle) để serialize data ta truyền vào
-- Mình tìm một bài viết khai thác khá giống với challenge hiện tại (nhưng không thành công khi inject vào param uicolor ở route/set)
-- Hold up, để ý session handler, ta cũng có thể tùy chỉnh session theo ý mình(và nó được tạo trước khi vào bất kỳ routes nào)
+- Mình tìm một bài viết khai thác khá giống với web hiện tại (nhưng không thành công khi inject vào param uicolor ở route/set)
+- Để ý session handler, ta cũng có thể tùy chỉnh session theo ý mình(và nó được tạo trước khi vào bất kỳ routes nào)
 
 ![alt text](images/3.png)
 
@@ -58,8 +58,9 @@ def generate_exploit():
     return f"\"{pack}\""
 print(generate_exploit())
 ```
-- Mình tạo pickle payload để execute os.system curl đến requestrepo với path là flag
+- Mình tạo pickle payload để execute os.system curl đến requestrepo
 - Vì session bị limited 86 kí tự, nên mình giảm command xuống
 - Lưu ý rằng bạn cần build poc bằng linux hoặc ubuntu
 
 ![alt text](images/7.png)
+
